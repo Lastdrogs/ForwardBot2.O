@@ -223,13 +223,13 @@ async def handler(event):
             m=await event.respond("Trying Forwarding")
             fromchat = int(fromchannel)
             tochat = int(tochannel)
-            count = 4507
-            mcount = 1009
+            count = 2063
+            mcount = 503
             global MessageCount
             print("Starting to forward")
             global start
             start = str(datetime.datetime.now())
-            async for message in client.iter_messages(fromchat, reverse=True):
+            async for message in client.iter_messages(fromchat, reverse=False):
                 if count:
                     if mcount:
                         if media_type(message) == 'Document':
@@ -249,7 +249,7 @@ async def handler(event):
                                     status.remove("2")
                                 except:
                                     pass
-                                await asyncio.sleep(2)
+                                await asyncio.sleep(3)
                                 mcount -= 1
                                 count -= 1
                                 MessageCount += 1
@@ -263,7 +263,7 @@ async def handler(event):
                         status.remove("1")
                         await m.edit(f"You have send {MessageCount} messages.\nWaiting for 10 minutes.")
                         await asyncio.sleep(600)
-                        mcount = 1009
+                        mcount = 503
                         print("Starting after 10 mins")
                         await m.edit("Starting after 10 mins")
                 else:
@@ -273,7 +273,7 @@ async def handler(event):
                     status.remove("1")
                     await m.edit(f"You have send {MessageCount} messages.\nWaiting for 30 minutes.")
                     await asyncio.sleep(1800)
-                    count = 4507
+                    count = 2063
                     print("Starting after 30 mins")
                     await m.edit("Starting after 30 mins")
                     
