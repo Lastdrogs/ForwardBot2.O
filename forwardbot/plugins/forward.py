@@ -234,7 +234,7 @@ async def handler(event):
                     if mcount:
                         if media_type(message) == 'Document':
                             try:
-                                await client.send_file(tochat, message.document ,caption="@subinps") 
+                                await client.send_file(tochat, message.document ,caption=f"A PROJECT BY XTZ BOTS \n\n ©@subinps") 
                                 try:
                                   if len(str(message.file.name)) <= 95:
                                     print("Succesfully forwarded: " + str(message.file.name))
